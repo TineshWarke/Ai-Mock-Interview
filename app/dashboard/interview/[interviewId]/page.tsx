@@ -26,9 +26,9 @@ const Interview: React.FC = () => {
     };
 
     useEffect(() => {
-        if (!interviewId) return;
         getInterviewDetails();
-    }, [interviewId]);
+    }, [getInterviewDetails]);
+
 
     return (
         <div className='my-10 flex flex-col justify-center items-center px-5 md:px-10'>

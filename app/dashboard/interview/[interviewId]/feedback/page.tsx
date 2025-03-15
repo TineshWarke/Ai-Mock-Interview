@@ -5,10 +5,22 @@ import { eq } from 'drizzle-orm';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 
+interface InterviewFeedback {
+  id: number;
+  mockIdRef: string;
+  question: string;
+  correctAns: string;
+  userAns: string;
+  feedback: string;
+  rating: string;
+  userEmail: string;
+  createdAt: string;
+}
+
 const Feedback = () => {
   const params = useParams();
   const interviewId = params?.interviewId as string;
-  const [feedbackList, setFeedbackList] = useState<any[]>([]);
+  const [feedbackList, setFeedbackList] = useState<InterviewFeedback[]>([]);
   const router = useRouter();
 
   const getFeedback = useCallback(async () => {
@@ -56,14 +68,14 @@ const Feedback = () => {
             <div className="collapse-title font-semibold text-justify">{item.question}</div>
             <div className="collapse-content text-sm max-w-full">
               <h3
-                className={`p-2 ${isNaN(item.rating) || item.rating <= 4
+                className={`p-2 ${isNaN(Number(item.rating)) || Number(item.rating) <= 4
                   ? 'text-red-500'
-                  : item.rating <= 7
+                  : Number(item.rating) <= 7
                     ? 'text-yellow-500'
                     : 'text-green-500'
                   }`}
               >
-                <strong>Rating:</strong> {!isNaN(item.rating) ? item.rating : 0}
+                <strong>Rating:</strong> {!isNaN(Number(item.rating)) ? item.rating : 0}
               </h3>
               <pre className="bg-red-100 text-red-500 p-2 rounded-lg my-2 whitespace-pre-wrap text-justify">
                 <strong>Your Answer:</strong> {item.userAns}
