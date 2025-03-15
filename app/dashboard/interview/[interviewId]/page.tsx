@@ -8,10 +8,21 @@ import { useParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import Webcam from 'react-webcam';
 
+interface Interview {
+    id: number;
+    jsonMockResp: string;
+    jobPosition: string;
+    jobDesc: string;
+    jobExperience: string;
+    createdBy: string;
+    createdAt: string;
+    mockId: string;
+}
+
 const Interview: React.FC = () => {
     const params = useParams();
     const interviewId = params?.interviewId as string;
-    const [interviewDetails, setInterviewDetails] = useState<any>(null);
+    const [interviewDetails, setInterviewDetails] = useState<Interview>();
     const [webCamEnabled, setWebCamEnabled] = useState<boolean>(false);
 
     const getInterviewDetails = async () => {

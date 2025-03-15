@@ -6,10 +6,21 @@ import { useUser } from '@clerk/nextjs';
 import React, { useEffect, useState, useCallback } from 'react';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 
+interface Interview {
+    id: number;
+    jsonMockResp: string;
+    jobPosition: string;
+    jobDesc: string;
+    jobExperience: string;
+    createdBy: string;
+    createdAt: string;
+    mockId: string;
+}
+
 interface QuestionSectionProps {
     InterviewQuestions: { Question: string; Answer: string }[] | null;
     activeQuestionIndex: number;
-    interviewDetails: any;
+    interviewDetails: Interview | null;
 }
 
 const RecordAnswerSection: React.FC<QuestionSectionProps> = ({ InterviewQuestions, activeQuestionIndex, interviewDetails }) => {
@@ -51,7 +62,7 @@ const RecordAnswerSection: React.FC<QuestionSectionProps> = ({ InterviewQuestion
             }
 
             await db.insert(UserAnswer).values({
-                mockIdRef: interviewDetails.mockId,
+                mockIdRef: interviewDetails?.mockId!,
                 question: InterviewQuestions[activeQuestionIndex].Question,
                 correctAns: InterviewQuestions[activeQuestionIndex].Answer,
                 userAns: userAnswer,

@@ -8,11 +8,24 @@ import QuestionSection from './_components/QuestionSection';
 import RecordAnswerSection from './_components/RecordAnswerSection';
 import Link from 'next/link';
 
+interface Interview {
+    id: number;
+    jsonMockResp: string;
+    jobPosition: string;
+    jobDesc: string;
+    jobExperience: string;
+    createdBy: string;
+    createdAt: string;
+    mockId: string;
+}
+
+type MockResponse = { Question: string; Answer: string };
+
 const StartInterview: React.FC = () => {
     const params = useParams();
     const interviewId = params?.interviewId as string;
-    const [interviewDetails, setInterviewDetails] = useState<any>(null);
-    const [mockInterviewQuestions, setMockInterviewQuestions] = useState<any[]>([]);
+    const [interviewDetails, setInterviewDetails] = useState<Interview | null>(null);
+    const [mockInterviewQuestions, setMockInterviewQuestions] = useState<MockResponse[]>([]);
     const [activeQuestionIndex, setActiveQuestionIndex] = useState<number>(0);
 
     const getInterviewDetails = async () => {
