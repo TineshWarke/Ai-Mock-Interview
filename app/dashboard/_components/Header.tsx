@@ -1,42 +1,51 @@
-'use client'
-import { UserButton } from '@clerk/nextjs'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import React, { useEffect } from 'react'
+'use client';
+
+import { UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import React from 'react';
 
 const Header = () => {
     const path = usePathname();
-    useEffect(() => {
+    const router = useRouter();
 
-    }, []);
+    const menuItems = [
+        { label: 'Dashboard', path: '/dashboard' },
+        { label: 'Questions', path: '/dashboard/questions' },
+        { label: 'Upgrade', path: '/dashboard/upgrade' },
+        { label: 'How it Works?', path: '/dashboard/howitworks' },
+    ];
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div>
-                        <Image src={'/logo.svg'} width={160} height={100} alt='logo' />
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a className={`${path === '/dashboard' && 'text-blue-500 font-bold'}`}>Dashboard</a></li>
-                    </ul>
-                </div>
+        <nav className="navbar bg-base-100 shadow-sm shadow-cyan-200">
+            {/* Logo */}
+            <div className="navbar-start ml-3">
+                <Image src="/coder.png" width={30} height={30} alt="Logo" />
+                <h2 className='text-cyan-500 font-bold text-2xl ml-2'>Tinesh</h2>
             </div>
+
+            {/* Desktop Menu */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a className={`${path === '/dashboard' && 'text-blue-500 font-bold'}`}>Dashboard</a></li>
-                    <li><a className={`${path === '/dashboard/questions' && 'text-blue-500 font-bold'}`}>Questions</a></li>
-                    <li><a className={`${path === '/dashboard/upgrade' && 'text-blue-500 font-bold'}`}>Upgrade</a></li>
-                    <li><a className={`${path === '/dashboard/how' && 'text-blue-500 font-bold'}`}>How it works ?</a></li>
+                    {menuItems.map((item) => (
+                        <li key={item.path}>
+                            <button
+                                className={`cursor-pointer ${path === item.path ? 'text-cyan-500 font-bold' : ''}`}
+                                onClick={() => router.push(item.path)}
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             </div>
-            <div className="navbar-end">
+
+            {/* User Profile */}
+            <div className="navbar-end mr-3">
                 <UserButton />
             </div>
-        </div>
-    )
-}
+        </nav>
+    );
+};
 
-export default Header
+export default Header;
