@@ -11,8 +11,8 @@ const Header = () => {
 
     const menuItems = [
         { label: 'Dashboard', path: '/dashboard' },
-        { label: 'Questions', path: '/dashboard/questions' },
-        { label: 'Upgrade', path: '/dashboard/upgrade' },
+        { label: 'Questions', path: '/' },
+        { label: 'Upgrade', path: '/' },
         { label: 'How it Works?', path: '/dashboard/howitworks' },
     ];
 
@@ -27,8 +27,8 @@ const Header = () => {
             {/* Desktop Menu */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {menuItems.map((item) => (
-                        <li key={item.path}>
+                    {menuItems.map((item, index) => (
+                        <li key={index}>
                             <button
                                 className={`cursor-pointer ${path === item.path ? 'text-cyan-500 font-bold' : ''}`}
                                 onClick={() => router.push(item.path)}
