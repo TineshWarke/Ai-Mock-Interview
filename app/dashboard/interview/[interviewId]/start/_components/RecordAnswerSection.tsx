@@ -62,7 +62,7 @@ const RecordAnswerSection: React.FC<QuestionSectionProps> = ({ InterviewQuestion
             }
 
             await db.insert(UserAnswer).values({
-                mockIdRef: interviewDetails?.mockId!,
+                mockIdRef: interviewDetails?.mockId ?? "unknown",
                 question: InterviewQuestions[activeQuestionIndex].Question,
                 correctAns: InterviewQuestions[activeQuestionIndex].Answer,
                 userAns: userAnswer,

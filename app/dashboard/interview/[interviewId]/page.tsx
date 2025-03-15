@@ -43,7 +43,7 @@ const Interview: React.FC = () => {
 
     return (
         <div className='my-10 flex flex-col justify-center items-center px-5 md:px-10'>
-            <h2 className='font-bold text-2xl text-center text-cyan-500'>Let's Get Started</h2>
+            <h2 className='font-bold text-2xl text-center text-cyan-500'>Let&apos;s Get Started</h2>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10 w-full'>
                 {/* Interview Details */}
