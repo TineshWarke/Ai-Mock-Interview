@@ -146,7 +146,7 @@ ${jobDescription}
                     </div>
                 </form>
 
-                {response && typeof response !== "string" ? (
+                {response && (typeof response !== "string" ? (
                     <div className="mt-6 p-4 border rounded-lg bg-gray-50 shadow-md">
                         <h2 className="text-xl font-semibold text-cyan-600">ATS Evaluation Results</h2>
                         <p className="text-lg font-bold mt-2">ATS Score: {' '}
@@ -210,10 +210,10 @@ ${jobDescription}
                         <p className="mt-3 font-bold">Final Verdict: <span className="text-red-600">{response.Final_Verdict}</span></p>
                     </div>
                 ) :
-                <div className="mt-6 p-4 border rounded-lg bg-gray-50 shadow-md">
-                    <h2 className='my-3 font-bold text-red-600 text-justify'>{response}</h2>
-                </div>
-            }
+                    <div className="mt-6 p-4 border rounded-lg bg-gray-50 shadow-md">
+                        <h2 className='my-3 font-bold text-red-600 text-justify'>{response}</h2>
+                    </div>
+                )}
             </div>
 
             <ToastContainer position="bottom-right" autoClose={5000} hideProgressBar={false} transition={Bounce} />
