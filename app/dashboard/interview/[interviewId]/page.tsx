@@ -81,14 +81,14 @@ const Interview: React.FC = () => {
                             <div className='p-20 bg-gray-100 border rounded-lg my-7 w-full flex justify-center'>
                                 <Image src={'/webcam.png'} width={72} height={72} alt='Webcam' />
                             </div>
-                            <button type='button' className="btn w-full btn-ghost" onClick={() => setWebCamEnabled(true)}>
+                            <button type='button' className="btn w-full btn-ghost hover:bg-cyan-100 hover:border-cyan-500" onClick={() => setWebCamEnabled(true)}>
                                 Enable Webcam and Microphone
                             </button>
                         </>
                     )}
                     <div className='mt-5 flex justify-end w-full'>
                         <Link href={`/dashboard/interview/${interviewId}/start`}>
-                            <button type='button' className="btn w-64 hover:bg-cyan-100 border-cyan-500">Start</button>
+                            <button type='button' className="btn w-64 hover:bg-cyan-100 hover:border-cyan-500">Start</button>
                         </Link>
                     </div>
                 </div>

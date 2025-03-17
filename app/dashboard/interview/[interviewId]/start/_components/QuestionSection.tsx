@@ -21,12 +21,12 @@ const QuestionSection: React.FC<QuestionSectionProps> = ({ InterviewQuestions, a
         <div className="p-5 border border-gray-300 rounded-lg m-10 mb-0">
             {/* Question Index Grid */}
             {InterviewQuestions && InterviewQuestions.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {InterviewQuestions.map((_, index) => (
                         <div key={index}>
                             <h2
-                                className={`p-2 bg-cyan-50 border border-cyan-500 rounded-full text-center text-xs md:text-sm cursor-pointer
-                                    ${activeQuestionIndex === index ? 'bg-cyan-500 text-white' : ''}`}
+                                className={`px-3 btn hover:bg-cyan-100 hover:border-cyan-500 rounded-full text-center text-xs md:text-sm cursor-pointer
+                                    ${activeQuestionIndex === index ? 'bg-cyan-100 border-cyan-500' : ''}`}
                                 aria-label={`Question ${index + 1}`}
                             >
                                 Question #{index + 1}

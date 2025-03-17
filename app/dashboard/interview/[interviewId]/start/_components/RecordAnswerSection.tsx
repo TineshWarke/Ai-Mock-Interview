@@ -97,7 +97,7 @@ const RecordAnswerSection: React.FC<QuestionSectionProps> = ({ InterviewQuestion
             />
             <button
                 type="button"
-                className={`btn ${!loading ? 'bg-cyan-50 border-cyan-500' : ''} hover:bg-cyan-200 `}
+                className={`btn ${!loading ? 'hover:bg-cyan-100 hover:border-cyan-500' : ''}`}
                 onClick={saveUserAnswer}
                 disabled={loading}
                 aria-label="Save answer button"

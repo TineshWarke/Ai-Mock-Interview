@@ -11,7 +11,7 @@ const Header = () => {
 
     const menuItems = [
         { label: 'Dashboard', path: '/dashboard' },
-        { label: 'Questions', path: '/' },
+        { label: 'ATSCheck', path: '/dashboard/atscheck' },
         { label: 'Upgrade', path: '/' },
         { label: 'How it Works?', path: '/dashboard/howitworks' },
     ];
