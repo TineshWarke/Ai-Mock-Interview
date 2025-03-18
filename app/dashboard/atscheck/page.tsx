@@ -103,7 +103,7 @@ ${jobDescription}
                 setResponse(parsedResponse);
             } catch (error) {
                 console.error("Error parsing AI response:", error);
-                setResponse("Error: Failed to parse ATS evaluation, Try again....");
+                setResponse("Error: Failed to parse ATS evaluation. " + cleanJson + " Try again....");
             }
         } catch (error) {
             console.error("Error:", error);
